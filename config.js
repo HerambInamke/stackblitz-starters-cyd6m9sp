@@ -5,11 +5,13 @@ require('dotenv').config();
 const config = {
   apiKey: process.env.API_KEY,
   serverSecret: process.env.SERVER_SECRET,
-  isKalvian: process.env.IS_KALVIAN === 'true',
+  isKalvian: process.env.IS_KALVIAN === 'true', // Ensure environment variable is boolean
 };
 
-if (process.env.isKalvian === 'true'){
+if (config.isKalvian) {
   console.log('Kalvian mode is enabled');
+} else {
+  console.log('Kalvian mode is not enabled');
 }
 
 // Export the config object for use in other parts of the application
